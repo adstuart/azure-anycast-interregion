@@ -86,6 +86,14 @@ adam@Azure:~$ az network vnet-gateway list-learned-routes -n hub-ergw -g lab-ars
 192.168.2.0/24    IBgp      172.16.179.5   12076-65000-65001-65001-65002  32768     172.16.178.4
 192.168.2.0/24    IBgp      172.16.179.4   12076-65000-65001-65001-65002  32768     172.16.178.4
 ```
+### Bonus - same scenario as above, but with remote VWAN injected prefix
+
+tl;dr - same beahaviour if prefix originates from VWAN remote network injection, which includes default routes injected by Routing Intent for example
+i.e. Adding ARS + turning on B2B, to an existing VNet with ER-GW, will prevent it utilisation routes that are injected from remote VWAN Hubs. This can be an interesting design toggle/tool.
+
+![](images/before.png)
+
+![](images/after.png)
 
 ## Azure Virtual WAN Hub BGP peering
 
